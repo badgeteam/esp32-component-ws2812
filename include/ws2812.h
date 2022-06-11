@@ -30,6 +30,6 @@ extern esp_err_t ws2812_disable(void);
  * @param len the data-length.
  * @return ESP_OK on success; any other value indicates an error
  */
-extern esp_err_t ws2812_send_data(uint8_t *data, int len);
+extern esp_err_t ws2812_send_data(const uint8_t *data, int len);
 
 __END_DECLS
