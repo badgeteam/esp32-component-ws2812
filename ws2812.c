@@ -77,7 +77,7 @@ esp_err_t ws2812_deinit(void) {
     return ESP_OK;
 }
 
-esp_err_t ws2812_prepare_data(uint8_t *data, int len)
+esp_err_t ws2812_prepare_data(const uint8_t *data, int len)
 {
     if (gBuffer != NULL) return ESP_FAIL;
     gBuffer = calloc(len * 8, sizeof(rmt_item32_t));
@@ -104,7 +104,7 @@ esp_err_t ws2812_free_data() {
     return ESP_OK;
 }
 
-esp_err_t ws2812_send_data(uint8_t *data, int len)
+esp_err_t ws2812_send_data(const uint8_t *data, int len)
 {
     if (!gActive) return ESP_FAIL;
     esp_err_t res = ws2812_prepare_data(data, len);
