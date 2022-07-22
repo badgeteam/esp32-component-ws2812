@@ -42,6 +42,7 @@ esp_err_t ws2812_init(gpio_num_t aGpioPin) {
     esp_err_t res = gpio_config(&io_conf);
     if (res != ESP_OK) return res;
     rmt_config_t config;
+    memset(&config, 0, sizeof(config));
     config.rmt_mode = RMT_MODE_TX;
     config.channel = WS2812_RMT_CHANNEL;
     config.gpio_num = aGpioPin;
