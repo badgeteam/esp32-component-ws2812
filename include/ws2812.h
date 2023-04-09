@@ -10,19 +10,13 @@ __BEGIN_DECLS
  * Initialize the WS2812 driver.
  * @return ESP_OK on success; any other value indicates an error
  */
-extern esp_err_t ws2812_init(gpio_num_t aGpioPin);
+extern esp_err_t ws2812_init(gpio_num_t aGpioPin, int length);
 
 /**
- * Enable power to the WS2812 bar.
+ * Disable the WS2812 driver
  * @return ESP_OK on success; any other value indicates an error
  */
-extern esp_err_t ws2812_enable(int gpio_pin);
-
-/**
- * Disable power to the WS2812 bar.
- * @return ESP_OK on success; any other value indicates an error
- */
-extern esp_err_t ws2812_disable(void);
+extern esp_err_t ws2812_deinit(void);
 
 /**
  * Send color-data to the WS2812 bus.
@@ -30,6 +24,6 @@ extern esp_err_t ws2812_disable(void);
  * @param len the data-length.
  * @return ESP_OK on success; any other value indicates an error
  */
-extern esp_err_t ws2812_send_data(const uint8_t *data, int len);
+extern esp_err_t ws2812_send_data(const uint8_t *data, int length);
 
 __END_DECLS
