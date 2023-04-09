@@ -77,7 +77,7 @@ esp_err_t ws2812_init(gpio_num_t aGpioPin, int length) {
     ws2812_t1h_ticks = (uint32_t)(ratio * WS2812_T1H_NS);
     ws2812_t1l_ticks = (uint32_t)(ratio * WS2812_T1L_NS);
 
-    ESP_LOGW(TAG, "WS2812 driver init complete");
+    ESP_LOGD(TAG, "WS2812 driver init complete");
     return ESP_OK;
 }
 
@@ -119,7 +119,7 @@ esp_err_t ws2812_prepare_data(const uint8_t *data, int length) {
 
 esp_err_t ws2812_send_data(const uint8_t *data, int length) {
     if (!gActive) {
-        ESP_LOGE(TAG, "Not active");
+        ESP_LOGE(TAG, "Driver not initialized");
         return ESP_FAIL;
     }
     esp_err_t res = ws2812_prepare_data(data, length);
